@@ -5,35 +5,39 @@
 #include <cstdlib> // for rand and srand
 #include <ctime> // for the time function
 #include <fstream> //for output file
+#include <vector>
 
-const int smallArraySize = 10;
-const int mediumArraySize = 100;
+int SIZE = 10;
+std::vector<int> arr(SIZE);
+
+
+void fillArray();
+void printUnsorted();
 int main(int argc, const char * argv[]) {
-    // insert code here...
-    int smallArray[10];
-    int mediumArray[100];
-    int largeArray[1000];
-    
-    //array of size 10
-    for(int i = 0; i < smallArraySize; i++)
-    {
-        smallArray[i] = rand() % 40 + 1;
-         printf("%d ", smallArray[i]);
-    }
-    
-    //call sorts
-    
-    for(int i = 0; i < mediumArraySize; i++)
-    {
-        mediumArray[i] = rand() % 400 + 1;
-        printf("%d ", mediumArray[i]);
-    }
-    
-    
-    
-    
-  
+
+    fillArray();
+    printUnsorted();
     return 0;
     
     
+    
+
+}
+
+void fillArray()
+{
+    arr.resize(SIZE);
+    std::cout << "Size of array (n) is " << SIZE << std::endl;
+    for(int i = 0; i < SIZE; i++)
+    {
+        arr[i] = rand() % (4 * SIZE) + 1;
+    }
+}
+
+void printUnsorted()
+{
+    for(int i = 0; i < SIZE; i++)
+    {
+        std::cout << arr[i] << std::endl;
+    }
 }
