@@ -1,6 +1,9 @@
 //Noah Lattari
 //500760404
 //Lab 1 - Comparing array sort times
+//As a side note, my selection/merge sort hybrid doesn't appear to be working, although I do know the idea of it.
+//If the are size is under a certain legnth (7), it is more efficient to use selection sort vs merge sort again, even though selection sort has a worse runtime.
+
 #include <iostream>
 #include <cstdlib> // for rand and srand
 #include <ctime> // for the time function
@@ -91,7 +94,7 @@ int main(int argc, const char * argv[]) {
     ARRAY = mergeSort(ARRAY);
     stop = high_resolution_clock::now();
     duration = duration_cast<microseconds>(stop - start);
-    printUnsorted(ARRAY);
+    //printUnsorted(ARRAY);
     cout << "Time taken by function: of size " << SIZE << "\n" << duration.count() << " microseconds" << endl;
     
     SIZE = 100;
