@@ -95,8 +95,6 @@ long multiply3(string n1, string n2)
     
     int N = (int)(fmax(n1Length, n2Length));
     
-    
-   
     if (N < 10)
         return number1 * number2;
     
@@ -109,34 +107,29 @@ long multiply3(string n1, string n2)
     long d = number2 / multiplier;
     long c = number2 - (d * N);
     
-    
     long z0 = multiply3(std::to_string(a), std::to_string(c));
     long z1 = multiply3(std::to_string(a) + std::to_string(b), std::to_string(c) + std::to_string(d));
     long z2 = multiply3(std::to_string(b), std::to_string(d));
     
-    
     return z0 + ((z1 - z0 - z2) * multiplier) + (z2 * (long long)(pow(10, 2 * N)));
-    
-    
-   
 }
 
-// Driver code
+
 int main()
 {
+  
+    cout << "Traditional Multiplication: " << multiply4("1234", "4321") << endl;
+    cout << "Karatsuba Multiplication: " << multiply3("1234", "4321") << endl;
     
-    string str1 = "12";
-    string str2 = "24";
+    cout << "Traditional Multiplication: " << multiply4("110", "220") << endl;
+    cout << "Karatsuba Multiplication: " << multiply3("110", "220") << endl;
     
-    long result = multiply4(str1, str2);
-    cout << result;
-   /*
-    string a = "2406994";
-    string b = "2328563";
+    cout << "Traditional Multiplication: " << multiply4("14589", "912") << endl;
+    cout << "Karatsuba Multiplication: " << multiply3("14589", "912") << endl;
     
-    cout << multiply3(a,b) << endl;
-    */
+    cout << "Traditional Multiplication: " << multiply4("7777777", "88888888") << endl;
+    cout << "Karatsuba Multiplication: " << multiply3("7777777", "88888888") << endl;
+    
     return 0;
    
-  
 }
