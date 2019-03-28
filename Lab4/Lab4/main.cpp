@@ -6,7 +6,7 @@
 int minKey(int key[], bool mstSet[])
 {
     int min = INT_MAX, min_index;
-    
+
     for (int v = 0; v < V; v++)
         if (mstSet[v] == false && key[v] < min)
             min = key[v], min_index = v;
@@ -45,7 +45,6 @@ void primMST(int graph[V][V])
                 parent[v] = u, key[v] = graph[u][v];
     }
     
-    // print the constructed MST
     printMST(parent, V, graph);
 }
 
@@ -59,11 +58,12 @@ int main()
      | /     \ |
      (3)-------(4)
      9         */
-    int graph[V][V] = {{0, 2, 0, 6, 0},
+    int graph[V][V] =
+        {{0, 4, 0, 6, 0},
         {2, 0, 3, 8, 5},
-        {0, 3, 0, 0, 7},
-        {6, 8, 0, 0, 9},
-        {0, 5, 7, 9, 0}};
+        {0, 2, 0, 0, 7},
+        {6, 2, 0, 0, 9},
+        {0, 9, 7, 9, 0}};
     
    
     primMST(graph);
